@@ -6,7 +6,7 @@
 {% endif %}
 <p>
 <form action="" method="POST">
-    {% for field in d %}
+    {% for field in d.keys() %}
         <p>
         {{ d[field] }}: 
         <p>

@@ -17,9 +17,7 @@ def show_all():
 
 @app.route('/view/')
 def show_coll():
-    print request.args
     str_clc = request.args.get('type', 'dictionary')
-    print str_clc
     clc = class_map.get(str_clc)
     docs = clc.objects
     return render_template('list.html', docs=docs, str_clc=str_clc)
@@ -28,24 +26,23 @@ def show_coll():
 @app.route('/doc/<doc_id>/', methods=["GET", "POST"])
 def show_doc(doc_id):
     str_clc = request.args.get('str_clc', 'dictionary')
-    print str_clc
     clc = class_map.get(str_clc)
     doc = clc.objects.get(id=doc_id)
-    fields = clc._fields
-    print doc
+    d = {}
     if request.method == 'GET':
-        d = {}
-        for field in fields:
-            print field
+        for field in doc:
             if field != 'id' and field != 'addtime':
                 d[doc[field]] = field
         return render_template('doc.html', doc=doc, d=d, str_clc=str_clc)
     if request.method == 'POST':
-        for field in doc:
-            if field != 'id' and field != 'addtime':
-                print "qui"
-                print request.form[field]
-                doc.field = request.form[field]
+        fields_ex=[]
+        for x in doc:
+            if x != 'id' and x != 'addtime':
+                fields_ex.append(x)
+        values = request.form.values()
+        d = dict(zip(values, fields_ex))
+        for k,v in d.items():
+            doc[d[k]] = k
         doc.save()
         return redirect(url_for('show_coll', type=str_clc))
 
@@ -53,7 +50,6 @@ def show_doc(doc_id):
 @app.route('/new/', methods=["GET", "POST"])
 def new_doc():
     str_clc = request.args.get('str_clc', 'dictionary')
-    print str_clc
     clc = class_map.get(str_clc)
     fields = clc._fields
     d = {}
@@ -62,7 +58,6 @@ def new_doc():
         for field in fields:
             if field != 'id' and field != 'addtime':
                 d[request.form[field]] = field
-        print d
         for k, v in d.items():
             doc[d[k]] = k
         doc.save()
@@ -73,7 +68,6 @@ def new_doc():
 @app.route('/del/<doc_id>/<str_clc>/', methods=["DELETE"])
 def del_doc(doc_id, str_clc):
     if request.method == 'DELETE':
-        print str_clc
         clc = class_map.get(str_clc)
         doc = clc.objects.get(id=doc_id)
         doc.delete()
