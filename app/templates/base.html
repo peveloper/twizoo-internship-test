@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<title>MongoDB CRUD</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>MongoDB CRUD </h1>
+<nav id="primary_nav_wrap">
+<ul>
+    <li><a href="#">Select a Collection</a>
+        <ul>
+        {% for type in ('blogger','dictionary') %}
+        <li><a href="{{ url_for('show_coll', type=type) }}">{{ type|title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+</ul>
+</nav>
+<br><br<br><br><br<br><br><br<br><br><br<br><br><br<br><br><br<br>
+{% block body %}{% endblock %}
+</body>
+</html>

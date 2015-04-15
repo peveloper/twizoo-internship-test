@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Edit Document: {{ doc.title }}</h2>
+{% if doc.addtime %}
+    <strong>Created: {{ doc.addtime.strftime('%Y-%m-%d %H:%M') }}</strong>
+{% endif %}
+<p>
+<form action="" method="POST">
+    {% for field in doc %}
+        {% if field != 'id' and field != 'addtime' %}
+            <p>
+            {{field}}: 
+            <p>
+            <input type=text name={{field}} value="{{ doc.field }}">
+        {% endif %}
+    {% endfor %}
+    <p>
+    <p>
+    <input type=submit class="submit" value="Save">
+    <a href="{{ url_for('show_all', clc=clc) }}">Back to list</a>
+</form>
+{% endblock %}

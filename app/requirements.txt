@@ -1,0 +1,6 @@
+flask
+pymongo==2.8
+flask-mongoengine
+mongoengine
+flask-modus
+

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>New {{ str_clc }} Document</h2>
+    <form action="" method="POST">
+        {% for field in fields %}
+            {% if field != 'id' and field != 'addtime' %}
+                <p>
+                {{ field }}: 
+                <p>
+                <input type=text name={{ field }} value="{{ fields.field }}">
+            {% endif %}
+        {% endfor %}
+        <p>
+        <p>
+        <input type=submit class="submit" value="Save">
+        <a href="{{ url_for('show_coll', type=str_clc) }}">Back to list</a>
+    </form>
+{% endblock %}

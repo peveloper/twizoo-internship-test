@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>{% if str_clc %} {{str_clc}} {% endif %}'s documents</h2>
+<ul>
+	{% for doc in docs %}
+    <li><a href = "{{url_for('show_doc', doc_id=doc.id, str_clc=str_clc)}}">{{doc.id}}</a> {% if doc.addtime %} - Created: {{doc.addtime.strftime('%Y-%m-%d %H:%M')}} {% endif %}
+            <form action="{{url_for('del_doc', doc_id = doc.id, str_clc = str_clc)}}" method="DELETE">
+                <input type="hidden" name="_method" value="DELETE"> 
+                <input type="submit" value="Delete">
+            </form> 
+        </li>
+	{% endfor %}
+    <a href="{{ url_for('new_doc', str_clc = str_clc) }}">Add new Doc</a>
+</ul>
+{% endblock %}
