@@ -3,7 +3,7 @@ Setup
 
 -----------------------------------
 
-Install the flask virtual environment
+Install a virtual environment
 
 $ pip install virtualenv
 
