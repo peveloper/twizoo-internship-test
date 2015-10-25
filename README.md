@@ -1,6 +1,6 @@
-## twizoo-test
+# twizoo-test
 
-# Setup and Usage
+## Setup and Usage
 
 -----------------------------------
 
