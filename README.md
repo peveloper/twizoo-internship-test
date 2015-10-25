@@ -1,4 +1,5 @@
 # twizoo-internship-test
+A simple CRUD web application written with Flask
 
 ## Setup and Usage
 
