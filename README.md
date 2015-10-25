@@ -1,4 +1,4 @@
-# twizoo-test
+# twizoo-internship-test
 
 ## Setup and Usage
 
@@ -35,4 +35,4 @@ $ ./run.py
 
 ### Surf to localhost:5000/
 
-## NOTE: Python code checked with PEP8 (no check for Jinja templates)
+#### NOTE: Python code checked with PEP8 (no check for Jinja templates)
