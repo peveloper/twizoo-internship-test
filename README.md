@@ -27,11 +27,11 @@ navigate to app/ and enter
 $ pip install -r requirements
 ```
 -----------------------------------
-```
+
 now run a mongoDB server instance
 ```
 $ mongod
-
+```
 -----------------------------------
 
 In root folder type:
