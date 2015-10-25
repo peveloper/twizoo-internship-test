@@ -2,47 +2,37 @@
 
 ## Setup and Usage
 
------------------------------------
-
-Install a virtual environment
+### Install a virtual environment
 ```
 $ pip install virtualenv
 ```
------------------------------------
 
-create the virtualenv
+### Create the virtualenv
 ```
 $ virtualenv flask
 ```
------------------------------------
 
-navigate to flask/ and enter
+### Navigate to flask/ and enter
 ```
 $ . bin/activate
 ```
------------------------------------
 
-navigate to app/ and enter
+### Navigate to app/ and enter
 ```
 $ pip install -r requirements
 ```
------------------------------------
 
-now run a mongoDB server instance
+### Start a mongoDB server instance
 ```
 $ mongod
 ```
------------------------------------
 
-In root folder type:
+### In root folder type:
 ```
 $ chmod a+x run.py
 $ ./run.py
 ```
------------------------------------
 
-Surf to localhost:5000/
+### Surf to localhost:5000/
 
------------------------------------
-
-NOTE: python code checked with PEP8 (no check for jinja templates)
+## NOTE: Python code checked with PEP8 (no check for Jinja templates)
